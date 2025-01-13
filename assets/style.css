@@ -29,6 +29,9 @@ body {
     /* Smooth scaling effect */
     animation: none;
     /* No animation initially */
+
+    width: 20%;
+
 }
 
 /* Hover effect with animation */
@@ -54,3 +57,11 @@ body {
     }
 }
 
+#number {
+    transition: transform 0.1s ease-in-out;
+}
+
+#number {
+    transform: scale(1);
+    /* Default size */
+}

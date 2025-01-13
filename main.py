@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', number=0)
 
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):

@@ -4,18 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radial Gradient Background</title>
+    <title>Clicker</title>
     <link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
     <div class="centered-div", id="main", onclick="onClick()">
-        Centered Content
+        <h1 id="number">{{ number }}</h1>
     </div>
     <script>
+        var counter = 0
+
         function onClick() {
             console.log("clicked")
+            scaleDiv()
+            counter += 1
+            var numberDiv = document.getElementById("number");
+            numberDiv.innerText = counter
         }
+
+        function scaleDiv() {
+                var numberDiv = document.getElementById("number");
+
+                // Apply the scaling effect
+                numberDiv.style.transform = "scale(1.5)";  // Make the div 1.5 times larger
+
+                // After 0.3 seconds, revert back to the original size
+                setTimeout(function () {
+                    numberDiv.style.transform = "scale(1)";  // Revert back to the original size
+                }, 300); // 300ms = 0.3s
+            }
+
     </script>
 </body>
 
