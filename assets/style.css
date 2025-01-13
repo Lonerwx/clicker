@@ -21,33 +21,36 @@ body {
     background-color: #444;
     /* Slightly transparent black background */
     border-radius: 10px;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 #000000;
     /* Initial shadow (none) */
-    transition: button-fade 0.3s infinite;
-    /* Smooth animation for shadow */
     cursor: pointer;
     user-select: none;
+    transition: transform 0.3s ease;
+    /* Smooth scaling effect */
+    animation: none;
+    /* No animation initially */
 }
 
+/* Hover effect with animation */
 .centered-div:hover {
-    transition: scale(1.1);
+    animation: button-fade 0.5s forwards;
+    /* Play animation on hover */
+    animation-direction: normal;
+    /* Play animation normally when hovered */
+    transform: scale(1.1);
+    /* Slightly enlarge on hover */
 }
 
+/* Keyframes for shadow animation */
 @keyframes button-fade {
     0% {
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-
-    50% {
-        box-shadow: 0 0 5px 5px #ddd5
+        box-shadow: 0 0 0 #000000;
+        /* Start with no shadow */
     }
 
     100% {
-        box-shadow: 0 0 10px 5px #aaa5
+        box-shadow: 0 0 20px 10px #aaaaaa;
+        /* Shadow expands on hover */
     }
 }
 
-.centered-div:hover {
-    box-shadow: 0 0 10px 5px #aaa5
-    /* Larger shadow on hover */
-}
