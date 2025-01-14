@@ -40,8 +40,12 @@ body {
     /* Play animation on hover */
     animation-direction: normal;
     /* Play animation normally when hovered */
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     /* Slightly enlarge on hover */
+}
+
+.centered-div:active {
+    transform: scale(1.1);
 }
 
 /* Keyframes for shadow animation */
