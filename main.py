@@ -20,7 +20,9 @@ def increase():
     n = data.get("number", None)
     if n == None:
         return 400
+    old = num
     num = max(num, n)
+    print(f"Updating from {old} to {num}")
 
     return jsonify({"counter": num}), 200
 

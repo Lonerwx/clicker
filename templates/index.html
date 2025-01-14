@@ -14,13 +14,12 @@
         <h1 id="number">{{ number }}</h1>
     </div>
     <script>
-        var counter = 0
-
         function onClick() {
             console.log("clicked")
             scaleDiv()
-            counter += 1
             var numberDiv = document.getElementById("number");
+            var counter = Number.parseInt(numberDiv.innerText)
+            counter += 1
             numberDiv.innerText = counter
             send_increase()
         }
