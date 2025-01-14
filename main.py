@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request, jsonify
+from flask import Flask, render_template, send_from_directory, request, jsonify, redirect
 import os
 app = Flask(__name__)
 
@@ -27,6 +27,12 @@ def save(n: int):
 @app.route('/')
 def index():
     return render_template('index.html', number=d.n)
+
+@app.route('/secret')
+def secret():
+    if d.n < 300:
+        return redirect("/", 307)
+    return render_template('secret.html')
 
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):
