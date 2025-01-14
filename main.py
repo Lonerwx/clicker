@@ -5,7 +5,7 @@ num = 0
 
 @app.route('/')
 def index():
-    return render_template('index.html', number=0)
+    return render_template('index.html', number=num)
 
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):
