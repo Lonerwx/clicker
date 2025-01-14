@@ -22,6 +22,7 @@
             counter += 1
             var numberDiv = document.getElementById("number");
             numberDiv.innerText = counter
+            send_increase()
         }
 
         function scaleDiv() {
@@ -35,7 +36,33 @@
                     numberDiv.style.transform = "scale(1)";  // Revert back to the original size
                 }, 300); // 300ms = 0.3s
             }
+        
+        function send_increase() {
+            const ns = document.getElementById("number").innerText
+            const n = Number.parseInt(ns)
+        
+            const data = {
+                number: n
+            };
 
+            // Sending POST request using fetch
+            fetch('/increase', {
+                method: 'POST', // Set request method to POST
+                headers: {
+                    'Content-Type': 'application/json', // Sending JSON data
+                },
+                body: JSON.stringify(data), // Convert JavaScript object to JSON string
+                })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Update the counter value displayed on the page
+                document.getElementById('number').innerText = data.counter;
+            })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
     </script>
 </body>
 
