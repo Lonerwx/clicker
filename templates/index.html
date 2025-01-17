@@ -11,14 +11,22 @@
 
 <body>
     <div class="top">
-        <div class="button" id="home-button">Home</div>
-        <div class="button" id="showcase-button">Showcase</div>
-        <div class="button" id="youtube-button">YouTube</div>
+        <div class="button" id="home-button"><a href="/">Home</a></div>
+        <div class="button" id="secret-button"><a href="/secret">Secret</a></div>
+        <div class="button" id="youtube-button"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">YouTube</a></div>
     </div>
     <div class="centered-div", id="main", onclick="onClick()">
         <h1 id="number">{{ number }}</h1>
     </div>
     <script>
+        window.onload = function() {
+            const numberDiv = document.getElementById("number");
+            const counter = Number.parseInt(numberDiv.innerText)
+            if (counter < 150) {
+                const sb = document.getElementById("secret-button")
+                sb.style.display = "none"
+            }
+        }
         function onClick() {
             console.log("clicked")
             scaleDiv()
@@ -27,6 +35,10 @@
             counter += 1
             numberDiv.innerText = counter
             send_increase()
+            if (counter >= 150) {
+                const sb = document.getElementById("secret-button")
+                sb.style.removeProperty("display")
+            }
         }
 
         function scaleDiv() {
