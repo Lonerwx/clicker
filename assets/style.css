@@ -86,7 +86,7 @@ body {
 .button {
     color: #666;
     cursor: pointer;
-    padding: 10px 20px;
+    margin: 10px, 20px;
     user-select: none;
     transition: color 0.3s ease
 }
