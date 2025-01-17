@@ -30,7 +30,7 @@ def index():
 
 @app.route('/secret')
 def secret():
-    if d.n < 300:
+    if d.n < 150:
         return redirect("/", 307)
     return render_template('secret.html')
 
